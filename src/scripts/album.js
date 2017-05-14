@@ -275,10 +275,10 @@ album.delete = function(albumIDs) {
 
 	if (albumIDs.toString()==='0') {
 
-		action.title = 'Elimina Unsorted'
+		action.title = 'Elimina Intero Archivio'
 		cancel.title = 'Annulla'
 
-		msg = `<p>Eliminare tutte le foto contenute in 'Unsorted'?</p>`
+		msg = `<p>Eliminare tutte le foto e gli Album? <br> Attenzione: Saranno eliminati tutti i file definitivamente!</p>`
 
 	} else if (albumIDs.length===1) {
 

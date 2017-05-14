@@ -125,7 +125,7 @@ lychee.loginDialog = function() {
 				fn: lychee.login
 			},
 			cancel: {
-				title: 'Cancel',
+				title: 'Annulla',
 				fn: basicModal.close
 			}
 		}

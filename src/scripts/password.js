@@ -73,11 +73,11 @@ password.getDialog = function(albumID, callback) {
 		body: msg,
 		buttons: {
 			action: {
-				title: 'Enter',
+				title: 'Ok',
 				fn: action
 			},
 			cancel: {
-				title: 'Cancel',
+				title: 'Annulla',
 				fn: cancel
 			}
 		}

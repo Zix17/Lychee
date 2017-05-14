@@ -247,15 +247,15 @@ photo.delete = function(photoIDs) {
 
 	if (photoIDs.length===1) {
 
-		action.title = 'Delete Photo'
-		cancel.title = 'Keep Photo'
+		action.title = 'Elimina Foto'
+		cancel.title = 'Annulla'
 
 		msg = lychee.html`<p>Eliminare la foto '$${ photoTitle }'?</p>`
 
 	} else {
 
-		action.title = 'Delete Photo'
-		cancel.title = 'Keep Photo'
+		action.title = 'Elimina Foto'
+		cancel.title = 'Annulla'
 
 		msg = lychee.html`<p>Eliminare le $${ photoIDs.length } foto selezionate?</p>`
 
@@ -323,7 +323,7 @@ photo.setTitle = function(photoIDs) {
 
 	}
 
-	let input = lychee.html`<input class='text' name='title' type='text' maxlength='50' placeholder='Title' value='$${ oldTitle }'>`
+	let input = lychee.html`<input class='text' name='title' type='text' maxlength='100' placeholder='Titolo' value='$${ oldTitle }'>`
 
 	if (photoIDs.length===1) msg = lychee.html`<p>Inserisci un nuovo titolo per questa foto: ${ input }</p>`
 	else                     msg = lychee.html`<p>Inserisci un titolo per le $${ photoIDs.length } foto selezionate: ${ input }</p>`
@@ -332,11 +332,11 @@ photo.setTitle = function(photoIDs) {
 		body: msg,
 		buttons: {
 			action: {
-				title: 'Set title',
+				title: 'Imposta titolo',
 				fn: action
 			},
 			cancel: {
-				title: 'Cancel',
+				title: 'Annulla',
 				fn: basicModal.close
 			}
 		}
@@ -430,14 +430,14 @@ photo.setPublic = function(photoID, e) {
 		}
 
 		basicModal.show({
-			body: '<p>This photo is located in a public album. To make this photo private or public, edit the visibility of the associated album.</p>',
+			body: '<p>Questa foto è contenuta in un album pubblico. Per rendere questa foto privata, modificare la visibilità dell album.</p>',
 			buttons: {
 				action: {
-					title: 'Show Album',
+					title: 'Mostra Album',
 					fn: action
 				},
 				cancel: {
-					title: 'Cancel',
+					title: 'Annulla',
 					fn: basicModal.close
 				}
 			}
@@ -500,11 +500,11 @@ photo.setDescription = function(photoID) {
 		body: lychee.html`<p>Inserisci una descrizione per questa foto: <input class='text' name='description' type='text' maxlength='800' placeholder='Description' value='$${ oldDescription }'></p>`,
 		buttons: {
 			action: {
-				title: 'Set Description',
+				title: 'Imposta Descrizione',
 				fn: action
 			},
 			cancel: {
-				title: 'Cancel',
+				title: 'Annulla',
 				fn: basicModal.close
 			}
 		}
@@ -552,11 +552,11 @@ photo.editTags = function(photoIDs) {
 		body: msg,
 		buttons: {
 			action: {
-				title: 'Set Tags',
+				title: 'Imposta Tags',
 				fn: action
 			},
 			cancel: {
-				title: 'Cancel',
+				title: 'Annulla',
 				fn: basicModal.close
 			}
 		}

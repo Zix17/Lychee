@@ -10,7 +10,7 @@ upload.show = function(title, files, callback) {
 		body: build.uploadModal(title, files),
 		buttons: {
 			action: {
-				title: 'Close',
+				title: 'Chiudi',
 				class: 'hidden',
 				fn: basicModal.close
 			}
@@ -73,7 +73,7 @@ upload.start = {
 
 					// Error
 					$('.basicModal #basicModal__action.hidden').show()
-					upload.notify('Upload complete', 'Failed to upload one or more photos.')
+					upload.notify('Upload completato', 'Impossibile caricare una o più foto.')
 
 				}
 
@@ -111,49 +111,49 @@ upload.start = {
 
 					// Success
 					$('.basicModal .rows .row:nth-child(' + (file.num + 1) + ') .status')
-						.html('Finished')
+						.html('Completato')
 						.addClass('success')
 
 				} else {
 
-					if (data.substr(0, 6)==='Error:') {
+					if (data.substr(0, 6)==='Errore:') {
 
-						errorText = data.substr(6) + ' Please take a look at the console of your browser for further details.'
+						errorText = data.substr(6) + ' Controllare la console del browser per ulteriori dettagli.'
 						error     = true
 
 						// Error Status
 						$('.basicModal .rows .row:nth-child(' + (file.num + 1) + ') .status')
-							.html('Failed')
+							.html('Fallito')
 							.addClass('error')
 
 						// Throw error
-						if (error===true) lychee.error('Upload failed. Server returned an error!', xhr, data)
+						if (error===true) lychee.error('Caricamento Fallito. Il Server ha restituito un Errore!', xhr, data)
 
-					} else if (data.substr(0, 8)==='Warning:') {
+					} else if (data.substr(0, 8)==='Attenzione:') {
 
 						errorText = data.substr(8)
 						warning   = true
 
 						// Warning Status
 						$('.basicModal .rows .row:nth-child(' + (file.num + 1) + ') .status')
-							.html('Skipped')
+							.html('Saltato')
 							.addClass('warning')
 
 						// Throw error
-						if (error===true) lychee.error('Upload failed. Server returned a warning!', xhr, data)
+						if (error===true) lychee.error('Caricamento Fallito. Il Server ha restituito un Avviso!', xhr, data)
 
 					} else {
 
-						errorText = 'Server returned an unknown response. Please take a look at the console of your browser for further details.'
+						errorText = 'Il Server ha restituito una risposta sconosciuta. Controllare la console del browser per ulteriori dettagli.'
 						error     = true
 
 						// Error Status
 						$('.basicModal .rows .row:nth-child(' + (file.num + 1) + ') .status')
-							.html('Failed')
+							.html('Falito')
 							.addClass('error')
 
 						// Throw error
-						if (error===true) lychee.error('Upload failed. Server returned an unkown error!', xhr, data)
+						if (error===true) lychee.error('Caricamento Fallito. Il Server ha restituito un errore sconosciuto!', xhr, data)
 
 					}
 
@@ -199,7 +199,7 @@ upload.start = {
 					$('.basicModal .rows').scrollTop(scrollPos)
 
 					// Set status to processing
-					$('.basicModal .rows .row:nth-child(' + (file.num + 1) + ') .status').html('Processing')
+					$('.basicModal .rows .row:nth-child(' + (file.num + 1) + ') .status').html('Elaborazione')
 
 					// Upload next file
 					if (file.next!=null) {
@@ -228,9 +228,9 @@ upload.start = {
 
 		}
 
-		window.onbeforeunload = function() { return 'Lychee is currently uploading!' }
+		window.onbeforeunload = function() { return 'Caricamento Foto in Corso, si prega di attendere!' }
 
-		upload.show('Uploading', files, function() {
+		upload.show('Caricamento in Corso', files, function() {
 
 			// Upload first file
 			process(files, files[0])
@@ -373,7 +373,7 @@ upload.start = {
 							.show()
 
 						$('.basicModal .rows .row .status')
-							.html('Failed')
+							.html('Fallito')
 							.addClass('error')
 
 						// Log error
