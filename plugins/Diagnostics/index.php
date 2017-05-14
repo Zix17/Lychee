@@ -69,6 +69,26 @@ require(LYCHEE_CONFIG_FILE);
 $database = new Mysqli($dbHost, $dbUser, $dbPassword, $dbName);
 if (mysqli_connect_errno()!=0) $error .= ('Error: ' . mysqli_connect_errno() . ': ' . mysqli_connect_error() . '' . PHP_EOL);
 
+// PHP limits
+$php['max_size'] = -1;
+$php['memory_limit'] = -1;
+
+if ($php['max_size'] < 0) {
+	// Start with post_max_size.
+	$php['max_size'] = ini_get('post_max_size');
+
+	// If upload_max_size is less, then reduce. Except if upload_max_size is
+	// zero, which indicates no limit.
+	$upload_max = ini_get('upload_max_filesize');
+	if ($upload_max > 0 && $upload_max < $php['max_size']) {
+		$php['max_size'] = $upload_max;
+	}
+}
+
+if($php['memory_limit'] < 0) {
+	$php['memory_limit'] = ini_get('memory_limit');
+}
+
 // Config
 if (!isset($dbName)||$dbName==='') $error .= ('Error: No property for $dbName in config.php' . PHP_EOL);
 if (!isset($dbUser)||$dbUser==='') $error .= ('Error: No property for $dbUser in config.php' . PHP_EOL);
@@ -127,16 +147,18 @@ if ((isset($_SESSION['login'])&&$_SESSION['login']===true)&&
 	else                                                                                 $imagickVersion = $imagickVersion['versionNumber'];
 
 	// Output system information
-	echo('Lychee Version:  ' . $json['version'] . PHP_EOL);
-	echo('DB Version:      ' . $settings['version'] . PHP_EOL);
-	echo('System:          ' . PHP_OS . PHP_EOL);
-	echo('PHP Version:     ' . floatval(phpversion()) . PHP_EOL);
-	echo('MySQL Version:   ' . $database->server_version . PHP_EOL);
-	echo('Imagick:         ' . $imagick . PHP_EOL);
-	echo('Imagick Active:  ' . $settings['imagick'] . PHP_EOL);
-	echo('Imagick Version: ' . $imagickVersion . PHP_EOL);
-	echo('GD Version:      ' . $gdVersion['GD Version'] . PHP_EOL);
-	echo('Plugins:         ' . implode($settings['plugins'], ', ') . PHP_EOL);
+	echo('Lychee Version:   ' . $json['version'] . PHP_EOL);
+	echo('DB Version:       ' . $settings['version'] . PHP_EOL);
+	echo('System:           ' . PHP_OS . PHP_EOL);
+	echo('PHP Version:      ' . floatval(phpversion()) . PHP_EOL);
+    echo('PHP Max Upload:   ' . $php['max_size'] . PHP_EOL);
+    echo('PHP Memory Limit: ' . $php['memory_limit'] . PHP_EOL);
+	echo('MySQL Version:    ' . $database->server_version . PHP_EOL);
+	echo('Imagick:          ' . $imagick . PHP_EOL);
+	echo('Imagick Active:   ' . $settings['imagick'] . PHP_EOL);
+	echo('Imagick Version:  ' . $imagickVersion . PHP_EOL);
+	echo('GD Version:       ' . $gdVersion['GD Version'] . PHP_EOL);
+	echo('Plugins:          ' . implode($settings['plugins'], ', ') . PHP_EOL);
 
 } else {
 
