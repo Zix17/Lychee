@@ -32,7 +32,7 @@ sidebar.bind = function() {
 	let eventName = lychee.getEventName()
 
 	sidebar
-		.dom('#edit_title')
+		.dom('#edit_titolo')
 		.off(eventName)
 		.on(eventName, function() {
 			if (visible.photo())      photo.setTitle([ photo.getID() ])
@@ -40,7 +40,7 @@ sidebar.bind = function() {
 		})
 
 	sidebar
-		.dom('#edit_description')
+		.dom('#edit_descrizione')
 		.off(eventName)
 		.on(eventName, function() {
 			if (visible.photo())      photo.setDescription(photo.getID())
@@ -140,22 +140,22 @@ sidebar.createStructure.photo = function(data) {
 	}
 
 	structure.basics = {
-		title : 'Basics',
+		title : 'Informazioni',
 		type  : sidebar.types.DEFAULT,
 		rows  : [
-			{ title: 'Title',       value: data.title, editable },
-			{ title: 'Uploaded',    value: data.sysdate },
-			{ title: 'Description', value: data.description, editable }
+			{ title: 'Titolo',            value: data.title, editable },
+			{ title: 'Data Caricamento',  value: data.sysdate },
+			{ title: 'Descrizione',       value: data.description, editable }
 		]
 	}
 
 	structure.image = {
-		title : 'Image',
+		title : 'Immagine',
 		type  : sidebar.types.DEFAULT,
 		rows  : [
-			{ title: 'Size',       value: data.size },
-			{ title: 'Format',     value: data.type },
-			{ title: 'Resolution', value: data.width + ' x ' + data.height }
+			{ title: 'Dimensioni',  value: data.size },
+			{ title: 'Formato',     value: data.type },
+			{ title: 'Risoluzione', value: data.width + ' x ' + data.height }
 		]
 	}
 
@@ -199,10 +199,10 @@ sidebar.createStructure.photo = function(data) {
 	}
 
 	structure.sharing = {
-		title : 'Sharing',
+		title : 'Condivisione',
 		type  : sidebar.types.DEFAULT,
 		rows  : [
-			{ title: 'Public', value: _public }
+			{ title: 'Pubblica', value: _public }
 		]
 	}
 
@@ -282,11 +282,11 @@ sidebar.createStructure.album = function(data) {
 	}
 
 	structure.basics = {
-		title : 'Basics',
+		title : 'Informazioni',
 		type  : sidebar.types.DEFAULT,
 		rows  : [
-			{ title: 'Title',       value: data.title,       editable },
-			{ title: 'Description', value: data.description, editable }
+			{ title: 'Titolo',      value: data.title,       editable },
+			{ title: 'Descrizione', value: data.description, editable }
 		]
 	}
 
@@ -294,19 +294,19 @@ sidebar.createStructure.album = function(data) {
 		title : 'Album',
 		type  : sidebar.types.DEFAULT,
 		rows  : [
-			{ title: 'Created', value: data.sysdate },
-			{ title: 'Images',  value: data.num }
+			{ title: 'Data Creazione', value: data.sysdate },
+			{ title: 'Immagini',       value: data.num }
 		]
 	}
 
 	structure.share = {
-		title : 'Share',
+		title : 'Condivisione',
 		type  : sidebar.types.DEFAULT,
 		rows  : [
-			{ title: 'Public',       value: _public },
-			{ title: 'Hidden',       value: hidden },
-			{ title: 'Downloadable', value: downloadable },
-			{ title: 'Password',     value: password }
+			{ title: 'Pubblico',       value: _public },
+			{ title: 'Nascosto',       value: hidden },
+			{ title: 'Scaricabile',    value: downloadable },
+			{ title: 'Password',       value: password }
 		]
 	}
 

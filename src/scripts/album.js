@@ -275,8 +275,8 @@ album.delete = function(albumIDs) {
 
 	if (albumIDs.toString()==='0') {
 
-		action.title = 'Clear Unsorted'
-		cancel.title = 'Keep Unsorted'
+		action.title = 'Elimina Unsorted'
+		cancel.title = 'Annulla'
 
 		msg = `<p>Eliminare tutte le foto contenute in 'Unsorted'?</p>`
 
@@ -664,11 +664,11 @@ const getMessage = function(albumIDs, titles, operation) {
 		// Fallback for second album without a title
 		if (sTitle==='') sTitle = 'Untitled'
 
-		msg = lychee.html`<p>Are you sure you want to ${ operation } the album '$${ sTitle }' into '$${ title }'?</p>`
+		msg = lychee.html`<p>${ operation } l'Album '$${ sTitle }' su '$${ title }'?</p>`
 
 	} else {
 
-		msg = lychee.html`<p>Are you sure you want to ${ operation } all selected albums into '$${ title }'?</p>`
+		msg = lychee.html`<p>${ operation } gli album selezionati su '$${ title }'?</p>`
 
 	}
 
@@ -696,15 +696,15 @@ album.merge = function(albumIDs, titles = []) {
 	}
 
 	basicModal.show({
-		body: getMessage(albumIDs, titles, 'merge'),
+		body: getMessage(albumIDs, titles, 'Unire'),
 		buttons: {
 			action: {
-				title: 'Merge Albums',
+				title: 'Unisci Album',
 				fn: action,
 				class: 'red'
 			},
 			cancel: {
-				title: "Don't Merge",
+				title: "Annulla",
 				fn: basicModal.close
 			}
 		}
@@ -732,15 +732,15 @@ album.move = function(albumIDs, titles = []) {
 	}
 
 	basicModal.show({
-		body: getMessage(albumIDs, titles, 'move'),
+		body: getMessage(albumIDs, titles, 'Spostare'),
 		buttons: {
 			action: {
-				title: 'Move Albums',
+				title: 'Sposta Album',
 				fn: action,
 				class: 'red'
 			},
 			cancel: {
-				title: "Don't Move",
+				title: "Annulla",
 				fn: basicModal.close
 			}
 		}

@@ -128,7 +128,7 @@ view.album = {
 					lychee.setTitle('Unsorted', false)
 					break
 				default:
-					if (album.json.init) sidebar.changeAttr('title', album.json.title)
+					if (album.json.init) sidebar.changeAttr('titolo', album.json.title)
 					lychee.setTitle(album.json.title, true)
 					break
 			}
@@ -245,7 +245,7 @@ view.album = {
 
 	description: function() {
 
-		sidebar.changeAttr('description', album.json.description)
+		sidebar.changeAttr('descrizione', album.json.description)
 
 	},
 
@@ -261,19 +261,19 @@ view.album = {
 
 			$('#button_share_album')
 				.addClass('active')
-				.attr('title', 'Share Album')
+				.attr('title', 'Condividi Album')
 
 			$('.photo .iconic-share').remove()
 
-			if (album.json.init) sidebar.changeAttr('public', 'Yes')
+			if (album.json.init) sidebar.changeAttr('pubblico', 'Yes')
 
 		} else {
 
 			$('#button_share_album')
 				.removeClass('active')
-				.attr('title', 'Make Public')
+				.attr('title', 'Rendi Pubblico')
 
-			if (album.json.init) sidebar.changeAttr('public', 'No')
+			if (album.json.init) sidebar.changeAttr('pubblico', 'No')
 
 		}
 
@@ -281,15 +281,15 @@ view.album = {
 
 	hidden: function() {
 
-		if (album.json.visible==='1') sidebar.changeAttr('hidden', 'No')
-		else                          sidebar.changeAttr('hidden', 'Yes')
+		if (album.json.visible==='1') sidebar.changeAttr('nascosto', 'No')
+		else                          sidebar.changeAttr('nascosto', 'Yes')
 
 	},
 
 	downloadable: function() {
 
-		if (album.json.downloadable==='1') sidebar.changeAttr('downloadable', 'Yes')
-		else                               sidebar.changeAttr('downloadable', 'No')
+		if (album.json.downloadable==='1') sidebar.changeAttr('scaricabile', 'Yes')
+		else                               sidebar.changeAttr('scaricabile', 'No')
 
 	},
 
@@ -377,14 +377,14 @@ view.photo = {
 
 	title: function() {
 
-		if (photo.json.init) sidebar.changeAttr('title', photo.json.title)
+		if (photo.json.init) sidebar.changeAttr('titolo', photo.json.title)
 		lychee.setTitle(photo.json.title, true)
 
 	},
 
 	description: function() {
 
-		if (photo.json.init) sidebar.changeAttr('description', photo.json.description)
+		if (photo.json.init) sidebar.changeAttr('descrizione', photo.json.description)
 
 	},
 
@@ -395,13 +395,13 @@ view.photo = {
 			// Starred
 			$('#button_star')
 				.addClass('active')
-				.attr('title', 'Unstar Photo')
+				.attr('title', 'Rimuovi da "In Evidenza"')
 
 		} else {
 
 			// Unstarred
 			$('#button_star').removeClass('active')
-			$('#button_star').attr('title', 'Star Photo')
+			$('#button_star').attr('title', 'In Evidenza')
 
 		}
 
@@ -414,18 +414,18 @@ view.photo = {
 			// Photo public
 			$('#button_share')
 				.addClass('active')
-				.attr('title', 'Share Photo')
+				.attr('title', 'Condividi Foto')
 
-			if (photo.json.init) sidebar.changeAttr('public', 'Yes')
+			if (photo.json.init) sidebar.changeAttr('publica', 'Yes')
 
 		} else {
 
 			// Photo private
 			$('#button_share')
 				.removeClass('active')
-				.attr('title', 'Make Public')
+				.attr('title', 'Rendi Pubblica')
 
-			if (photo.json.init) sidebar.changeAttr('public', 'No')
+			if (photo.json.init) sidebar.changeAttr('publica', 'No')
 
 		}
 
