@@ -267,6 +267,11 @@ final class Album {
 		header("Content-Type: application/zip");
 		header("Content-Disposition: attachment; filename=\"$zipTitle.zip\"");
 		header("Content-Length: " . filesize($filename));
+
+		// Clean before, in order to avoid 500 error
+		ob_end_clean();
+		flush();
+
 		readfile($filename);
 
 		// Delete zip

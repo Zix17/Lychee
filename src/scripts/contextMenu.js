@@ -75,9 +75,9 @@ contextMenu.add = function(albumID, e) {
 	let items = [
 		{ title: build.iconic('image') + 'Upload Photo', fn: () => $('#upload_files').click() },
 		{ },
-		{ title: build.iconic('link-intact') + 'Import from Link', fn: upload.start.url },
-		{ title: build.iconic('dropbox', 'ionicons') + 'Import from Dropbox', fn: upload.start.dropbox },
-		{ title: build.iconic('terminal') + 'Import from Server', fn: upload.start.server },
+//		{ title: build.iconic('link-intact') + 'Import from Link', fn: upload.start.url },
+//		{ title: build.iconic('dropbox', 'ionicons') + 'Import from Dropbox', fn: upload.start.dropbox },
+//		{ title: build.iconic('terminal') + 'Import from Server', fn: upload.start.server },
 		{ },
 		{ title: build.iconic('folder') + 'New Album', fn: () => album.add(albumID) }
 	]
@@ -93,9 +93,9 @@ contextMenu.settings = function(e) {
 	let items = [
 		{ title: build.iconic('person') + 'Change Login', fn: settings.setLogin },
 		{ title: build.iconic('sort-ascending') + 'Change Sorting', fn: settings.setSorting },
-		{ title: build.iconic('dropbox', 'ionicons') + 'Set Dropbox', fn: settings.setDropboxKey },
+//		{ title: build.iconic('dropbox', 'ionicons') + 'Set Dropbox', fn: settings.setDropboxKey },
 		{ },
-		{ title: build.iconic('info') + 'About Lychee', fn: () => window.open(lychee.website) },
+//		{ title: build.iconic('info') + 'About Lychee', fn: () => window.open(lychee.website) },
 		{ title: build.iconic('wrench') + 'Diagnostics', fn: () => window.open('plugins/Diagnostics/') },
 		{ title: build.iconic('align-left') + 'Show Log', fn: () => window.open('plugins/Log/') },
 		{ },
@@ -356,10 +356,10 @@ contextMenu.sharePhoto = function(photoID, e) {
 	let items = [
 		{ title: `<input readonly id="link" value="${ link }">`, fn: () => {}, class: 'basicContext__item--noHover' },
 		{ },
-		{ title: build.iconic('twitter', iconClass) + 'Twitter', fn: () => photo.share(photoID, 'twitter') },
-		{ title: build.iconic('facebook', iconClass) + 'Facebook', fn: () => photo.share(photoID, 'facebook') },
+//		{ title: build.iconic('twitter', iconClass) + 'Twitter', fn: () => photo.share(photoID, 'twitter') },
+//		{ title: build.iconic('facebook', iconClass) + 'Facebook', fn: () => photo.share(photoID, 'facebook') },
 		{ title: build.iconic('envelope-closed') + 'Mail', fn: () => photo.share(photoID, 'mail') },
-		{ title: build.iconic('dropbox', iconClass) + 'Dropbox', visible: lychee.publicMode===false, fn: () => photo.share(photoID, 'dropbox') },
+//		{ title: build.iconic('dropbox', iconClass) + 'Dropbox', visible: lychee.publicMode===false, fn: () => photo.share(photoID, 'dropbox') },
 		{ title: build.iconic('link-intact') + 'Direct Link', fn: () => window.open(photo.getDirectLink()) },
 		{ },
 		{ title: build.iconic('ban') + 'Make Private', visible: lychee.publicMode===false, fn: () => photo.setPublic(photoID) }
@@ -379,8 +379,8 @@ contextMenu.shareAlbum = function(albumID, e) {
 	let items = [
 		{ title: `<input readonly id="link" value="${ location.href }">`, fn: () => {}, class: 'basicContext__item--noHover' },
 		{ },
-		{ title: build.iconic('twitter', iconClass) + 'Twitter', fn: () => album.share('twitter') },
-		{ title: build.iconic('facebook', iconClass) + 'Facebook', fn: () => album.share('facebook') },
+//		{ title: build.iconic('twitter', iconClass) + 'Twitter', fn: () => album.share('twitter') },
+//		{ title: build.iconic('facebook', iconClass) + 'Facebook', fn: () => album.share('facebook') },
 		{ title: build.iconic('envelope-closed') + 'Mail', fn: () => album.share('mail') },
 		{ },
 		{ title: build.iconic('pencil') + 'Edit Sharing', visible: lychee.publicMode===false, fn: () => album.setPublic(albumID, true, e) },

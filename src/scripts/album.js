@@ -197,7 +197,6 @@ album.add = function(albumID = 0) {
 	api.post('Albums::get', { parent: -1 }, function(data) {
 
 		let msg = `
-		          <p>Enter a title for the new album: <input class='text' name='title' type='text' maxlength='50' placeholder='Title' value='Untitled'></p>
 		          `
 
 		basicModal.show({
@@ -387,7 +386,6 @@ album.setTitle = function(albumIDs) {
 
 	}
 
-	let input = lychee.html`<input class='text' name='title' type='text' maxlength='50' placeholder='Title' value='$${ oldTitle }'>`
 
 	if (albumIDs.length===1) msg = lychee.html`<p>Enter a new title for this album: ${ input }</p>`
 	else                     msg = lychee.html`<p>Enter a title for all $${ albumIDs.length } selected albums: ${ input }</p>`
@@ -437,7 +435,7 @@ album.setDescription = function(albumID) {
 	}
 
 	basicModal.show({
-		body: lychee.html`<p>Please enter a description for this album: <input class='text' name='description' type='text' maxlength='800' placeholder='Description' value='$${ oldDescription }'></p>`,
+		body: lychee.html`<p>Please enter a description for this album: <input class='text' name='description' type='text' maxlength='4800' placeholder='Description' value='$${ oldDescription }'></p>`,
 		buttons: {
 			action: {
 				title: 'Set Description',
