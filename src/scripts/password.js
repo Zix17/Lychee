@@ -64,7 +64,7 @@ password.getDialog = function(albumID, callback) {
 
 	let msg = `
 	          <p>
-	              This album is protected by a password. Enter the password below to view the photos of this album:
+	              Questo Album è protetto da una password. Digitare la password per visualizzarne il contenuto:
 	              <input name='password' class='text' type='password' placeholder='password' value=''>
 	          </p>
 	          `

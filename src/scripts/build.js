@@ -147,16 +147,16 @@ build.no_content = function(typ) {
 
 	switch (typ) {
 		case 'magnifying-glass':
-			html += `<p>No results</p>`
+			html += `<p>Nessun risultato</p>`
 			break
 		case 'eye':
-			html += `<p>No public albums</p>`
+			html += `<p>Nessun Album Pubblico! <br> Necessario Autenticarsi</p>`
 			break
 		case 'cog':
-			html += `<p>No configuration</p>`
+			html += `<p>Nessuna configurazione</p>`
 			break
 		case 'question-mark':
-			html += `<p>Photo not found</p>`
+			html += `<p>Foto non trovata</p>`
 			break
 	}
 

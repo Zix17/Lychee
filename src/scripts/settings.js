@@ -240,11 +240,11 @@ settings.setLogin = function() {
 
 	let msg = `
 	          <p>
-	              Enter your current password:
+	              Inserisci la password corrente:
 	              <input name='oldPassword' class='text' type='password' placeholder='Current Password' value=''>
 	          </p>
 	          <p>
-	              Your username and password will be changed to the following:
+	              Il tuo username e password saranno cambiati con i seguenti:
 	              <input name='username' class='text' type='text' placeholder='New Username' value=''>
 	              <input name='password' class='text' type='password' placeholder='New Password' value=''>
 	          </p>
@@ -303,7 +303,7 @@ settings.setSorting = function() {
 
 	let msg = `
 	          <p>
-	              Sort albums by
+	              Visualizza Album per
 	              <span class="select">
 	                  <select id='settings_albums_type'>
 	                      <option value='id'>Creation Time</option>
@@ -312,17 +312,16 @@ settings.setSorting = function() {
 	                      <option value='public'>Public</option>
 	                  </select>
 	              </span>
-	              in an
+	              in ordine
 	              <span class="select">
 	                  <select id='settings_albums_order'>
 	                      <option value='ASC'>Ascending</option>
 	                      <option value='DESC'>Descending</option>
 	                  </select>
 	              </span>
-	              order.
 	          </p>
 	          <p>
-	              Sort photos by
+	              Visualizza Foto per
 	              <span class="select">
 	                  <select id='settings_photos_type'>
 	                      <option value='id'>Upload Time</option>
@@ -334,14 +333,13 @@ settings.setSorting = function() {
 	                      <option value='type'>Photo Format</option>
 	                  </select>
 	              </span>
-	              in an
+	              in ordine
 	              <span class="select">
 	                  <select id='settings_photos_order'>
 	                      <option value='ASC'>Ascending</option>
 	                      <option value='DESC'>Descending</option>
 	                  </select>
 	              </span>
-	              order.
 	          </p>
 	          `
 

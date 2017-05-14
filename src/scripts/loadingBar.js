@@ -33,7 +33,7 @@ loadingBar.show = function(status, errorText) {
 		// Modify loading
 		loadingBar.dom()
 			.removeClass('loading uploading error')
-			.html(`<h1>Error: <span>${ errorText }</span></h1>`)
+			.html(`<h1>Errore: <span>${ errorText }</span></h1>`)
 			.addClass(status)
 			.show()
 

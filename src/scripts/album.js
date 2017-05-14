@@ -197,18 +197,18 @@ album.add = function(albumID = 0) {
 	api.post('Albums::get', { parent: -1 }, function(data) {
 
 		let msg = `
-		          <p>Enter a title for the new album: <input class='text' name='title' type='text' maxlength='250' placeholder='Title' value='Untitled'></p>
+		          <p>Inserisci un titolo per il nuovo album: <input class='text' name='title' type='text' maxlength='250' placeholder='Title' value='Senza Titolo'></p>
 		          `
 
 		basicModal.show({
 			body: msg,
 			buttons: {
 				action: {
-					title: 'Create Album',
+					title: 'Crea Album',
 					fn: action
 				},
 				cancel: {
-					title: 'Cancel',
+					title: 'Annulla',
 					fn: basicModal.close
 				}
 			}
@@ -278,14 +278,14 @@ album.delete = function(albumIDs) {
 		action.title = 'Clear Unsorted'
 		cancel.title = 'Keep Unsorted'
 
-		msg = `<p>Are you sure you want to delete all photos from 'Unsorted'?<br>This action can't be undone!</p>`
+		msg = `<p>Eliminare tutte le foto contenute in 'Unsorted'?</p>`
 
 	} else if (albumIDs.length===1) {
 
 		let albumTitle = ''
 
-		action.title = 'Delete Album and Photos'
-		cancel.title = 'Keep Album'
+		action.title = 'Elimina Album e Foto'
+		cancel.title = 'Annulla'
 
 		// Get title
 		if (album.json && album.json.id == albumIDs[0]) albumTitle = album.json.title
@@ -294,14 +294,14 @@ album.delete = function(albumIDs) {
 		// Fallback for album without a title
 		if (albumTitle==='') albumTitle = 'Untitled'
 
-		msg = lychee.html`<p>Are you sure you want to delete the album '$${ albumTitle }' and all of the photos and subalbums it contains? This action can't be undone!</p>`
+		msg = lychee.html`<p>Eliminare l'album '$${ albumTitle }' comprese le Foto e Album al suo interno?</p>`
 
 	} else {
 
-		action.title = 'Delete Albums and Photos'
-		cancel.title = 'Keep Albums'
+		action.title = 'Elimina Album e Foto'
+		cancel.title = 'Annulla'
 
-		msg = lychee.html`<p>Are you sure you want to delete all $${ albumIDs.length } selected albums and all of the photos and subalbums they contain? This action can't be undone!</p>`
+		msg = lychee.html`<p>Eliminare i $${ albumIDs.length } Album selezionati e le Foto\Album al loro interno?</p>`
 
 	}
 
@@ -387,20 +387,20 @@ album.setTitle = function(albumIDs) {
 
 	}
 
-	let input = lychee.html`<input class='text' name='title' type='text' maxlength='250' placeholder='Title' value='$${ oldTitle }'>`
+	let input = lychee.html`<input class='text' name='title' type='text' maxlength='250' placeholder='Titolo' value='$${ oldTitle }'>`
 
-	if (albumIDs.length===1) msg = lychee.html`<p>Enter a new title for this album: ${ input }</p>`
-	else                     msg = lychee.html`<p>Enter a title for all $${ albumIDs.length } selected albums: ${ input }</p>`
+	if (albumIDs.length===1) msg = lychee.html`<p>Inserisci un nuovo titolo per questo Album: ${ input }</p>`
+	else                     msg = lychee.html`<p>Inserisci un titolo per i $${ albumIDs.length } Album selezionati: ${ input }</p>`
 
 	basicModal.show({
 		body: msg,
 		buttons: {
 			action: {
-				title: 'Set Title',
+				title: 'Imposta Titolo',
 				fn: action
 			},
 			cancel: {
-				title: 'Cancel',
+				title: 'Annulla',
 				fn: basicModal.close
 			}
 		}
@@ -437,14 +437,14 @@ album.setDescription = function(albumID) {
 	}
 
 	basicModal.show({
-		body: lychee.html`<p>Please enter a description for this album: <input class='text' name='description' type='text' maxlength='4800' placeholder='Description' value='$${ oldDescription }'></p>`,
+		body: lychee.html`<p>Inserisci una descrizione per questo Album: <input class='text' name='description' type='text' maxlength='4800' placeholder='Descrizione' value='$${ oldDescription }'></p>`,
 		buttons: {
 			action: {
-				title: 'Set Description',
+				title: 'Imposta Descrizione',
 				fn: action
 			},
 			cancel: {
-				title: 'Cancel',
+				title: 'Annulla',
 				fn: basicModal.close
 			}
 		}
@@ -473,13 +473,13 @@ album.setPublic = function(albumID, modal, e) {
 		// Album public = Editing a shared album
 		if (album.json.public==='1') {
 
-			action.title = 'Edit Sharing'
-			text         = 'The sharing-properties of this album will be changed to the following:'
+			action.title = 'Modifica Condivisione'
+			text         = 'Le impostazioni di condivisione di questo Album saranno sostituite con le seguenti:'
 
 		} else {
 
-			action.title = 'Share Album'
-			text         = 'This album will be shared with the following properties:'
+			action.title = 'Condividi Album'
+			text         = 'Questo Album sarà condiviso con le seguenti impostazioni:'
 
 		}
 
@@ -490,25 +490,25 @@ album.setPublic = function(albumID, modal, e) {
 		                  <label>
 		                      <input type='checkbox' name='hidden'>
 		                      <span class='checkbox'>${ build.iconic('check') }</span>
-		                      <span class='label'>Hidden</span>
+		                      <span class='label'>Nascosto</span>
 		                  </label>
-		                  <p>Only people with the direct link can view this album.</p>
+		                  <p>Solo chi è in possesso di un link diretto può visualizzare questo Album.</p>
 		              </div>
 		              <div class='choice'>
 		                  <label>
 		                      <input type='checkbox' name='downloadable'>
 		                      <span class='checkbox'>${ build.iconic('check') }</span>
-		                      <span class='label'>Downloadable</span>
+		                      <span class='label'>Scaricabile</span>
 		                  </label>
-		                  <p>Visitors of your Lychee can download this album.</p>
+		                  <p>I Visitatori possono scaricare questo Album.</p>
 		              </div>
 		              <div class='choice'>
 		                  <label>
 		                      <input type='checkbox' name='password'>
 		                      <span class='checkbox'>${ build.iconic('check') }</span>
-		                      <span class='label'>Password protected</span>
+		                      <span class='label'>Protetto con Password</span>
 		                  </label>
-		                  <p>Album only accessible with a valid password.</p>
+		                  <p>Album protetto con password.</p>
 		                  <input class='text' name='passwordtext' type='password' placeholder='password' value=''>
 		              </div>
 		          </form>
@@ -522,7 +522,7 @@ album.setPublic = function(albumID, modal, e) {
 					fn: action.fn
 				},
 				cancel: {
-					title: 'Cancel',
+					title: 'Annulla',
 					fn: basicModal.close
 				}
 			}

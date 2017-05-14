@@ -250,14 +250,14 @@ photo.delete = function(photoIDs) {
 		action.title = 'Delete Photo'
 		cancel.title = 'Keep Photo'
 
-		msg = lychee.html`<p>Are you sure you want to delete the photo '$${ photoTitle }'? This action can't be undone!</p>`
+		msg = lychee.html`<p>Eliminare la foto '$${ photoTitle }'?</p>`
 
 	} else {
 
 		action.title = 'Delete Photo'
 		cancel.title = 'Keep Photo'
 
-		msg = lychee.html`<p>Are you sure you want to delete all $${ photoIDs.length } selected photo? This action can't be undone!</p>`
+		msg = lychee.html`<p>Eliminare le $${ photoIDs.length } foto selezionate?</p>`
 
 	}
 
@@ -325,8 +325,8 @@ photo.setTitle = function(photoIDs) {
 
 	let input = lychee.html`<input class='text' name='title' type='text' maxlength='50' placeholder='Title' value='$${ oldTitle }'>`
 
-	if (photoIDs.length===1) msg = lychee.html`<p>Enter a new title for this photo: ${ input }</p>`
-	else                     msg = lychee.html`<p>Enter a title for all $${ photoIDs.length } selected photos: ${ input }</p>`
+	if (photoIDs.length===1) msg = lychee.html`<p>Inserisci un nuovo titolo per questa foto: ${ input }</p>`
+	else                     msg = lychee.html`<p>Inserisci un titolo per le $${ photoIDs.length } foto selezionate: ${ input }</p>`
 
 	basicModal.show({
 		body: msg,
@@ -497,7 +497,7 @@ photo.setDescription = function(photoID) {
 	}
 
 	basicModal.show({
-		body: lychee.html`<p>Enter a description for this photo: <input class='text' name='description' type='text' maxlength='800' placeholder='Description' value='$${ oldDescription }'></p>`,
+		body: lychee.html`<p>Inserisci una descrizione per questa foto: <input class='text' name='description' type='text' maxlength='800' placeholder='Description' value='$${ oldDescription }'></p>`,
 		buttons: {
 			action: {
 				title: 'Set Description',
@@ -545,8 +545,8 @@ photo.editTags = function(photoIDs) {
 
 	let input = lychee.html`<input class='text' name='tags' type='text' maxlength='800' placeholder='Tags' value='$${ oldTags }'>`
 
-	if (photoIDs.length===1) msg = lychee.html`<p>Enter your tags for this photo. You can add multiple tags by separating them with a comma: ${ input }</p>`
-	else                     msg = lychee.html`<p>Enter your tags for all $${ photoIDs.length } selected photos. Existing tags will be overwritten. You can add multiple tags by separating them with a comma: ${ input }</p>`
+	if (photoIDs.length===1) msg = lychee.html`<p>Inserisci i Tag per questa foto. <br> Puoi inserire Tag multipli separandoli con una virgola: ${ input }</p>`
+	else                     msg = lychee.html`<p>Inserisci i Tag per le $${ photoIDs.length } foto selezionate. I Tag esistenti saranno sovrascritti. <br> Puoi inserire Tag multipli separandoli con una virgola: ${ input }</p>`
 
 	basicModal.show({
 		body: msg,
